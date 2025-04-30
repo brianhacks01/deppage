@@ -53,10 +53,10 @@
 
     <section class="min-h-screen flex flex-col items-center justify-center px-4 text-center">
       <h2 class="text-3xl md:text-5xl font-bold mb-6">Earn Real Money with AI Game Predictions</h2>
-      <p class="max-w-xl mb-8 text-gray-300">Join thousands of Filipinos using our smart AI to win in games like Aviator, Mines, and Penalty. 98% signal accuracy, real-time predictions, and fast cashouts!</p>
-      
+      <p class="max-w-xl mb-8 text-gray-300">Join thousands of South Africans using our smart AI to win in games like Aviator, Mines, and Penalty. 98% signal accuracy, real-time predictions, and fast cashouts!</p>
+
       <!-- ID input for connection -->
-      <input id="userId" type="text" placeholder="Enter your 1xBet Account ID" class="bg-gray-700 text-white p-3 rounded-md mb-4" />
+      <input id="userId" type="text" maxlength="10" placeholder="Enter your 1xBet Account ID" class="bg-gray-700 text-white p-3 rounded-md mb-4" />
       <button id="connectButton" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-xl text-lg transition">Connect Account</button>
 
       <!-- Success message -->
@@ -69,7 +69,7 @@
       <!-- Error message for deposit -->
       <div id="errorBox" class="hidden bg-red-600 p-6 rounded-xl max-w-md mx-auto mt-6">
         <h2 class="text-xl font-bold mb-2">⚠️ Deposit Not Found</h2>
-        <p class="mb-4">It looks like your account balance is empty. Please make a deposit of 25 to unlock access to the signals and start earning!</p>
+        <p class="mb-4">It looks like your account balance is empty. Please make a deposit of ZAR 25 to unlock access to the signals and start earning!</p>
         <a href="https://affpa.top/L?tag=d_4326916m_18627c_&site=4326916&ad=18627&r=registration" target="_blank" id="depositButton" class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg transition">
           Deposit Now on 1xBet
         </a>
@@ -92,8 +92,48 @@
       </div>
     </section>
 
-    <!-- Remaining sections stay the same -->
+    <section id="games" class="bg-gray-800 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">Supported Games</h3>
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">🎮 Aviator</h4>
+          <p class="text-gray-300">Predict when to cash out before the plane flies away! Our AI spots lift-off trends in real time.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">💣 Mines</h4>
+          <p class="text-gray-300">Avoid the bombs, collect the wins. Our system finds low-risk paths for maximum profit.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">🥅 Penalty</h4>
+          <p class="text-gray-300">Know where to shoot or dive. Beat the goalkeeper with data-driven predictions.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-xl shadow-lg">
+          <h4 class="text-xl font-bold mb-2">🐔 Chicken Road</h4>
+          <p class="text-gray-300">Know when to cross or stop. Outsmart the truck with data-driven predictions.</p>
+        </div>
 
+      </div>
+    </section>
+
+    <section id="how" class="bg-gray-900 py-12 px-6 text-center">
+      <h3 class="text-2xl font-bold text-green-400 mb-6">How It Works</h3>
+      <div class="max-w-3xl mx-auto space-y-4 text-gray-300">
+        <p>📡 Our AI scans live game data and historical results 24/7.</p>
+        <p>💡 It identifies patterns that lead to consistent wins.</p>
+        <p>📲 You receive real-time predictions you can trust — straight to your device.</p>
+      </div>
+    </section>
+
+    <section class="bg-black py-12 px-6 text-center">
+      <h3 class="text-xl font-bold text-green-400 mb-4">[ Console Monitor Log ]</h3>
+      <div class="console-box max-w-3xl mx-auto text-left" id="console">
+        <p>[INFO] Predictor service active ✅</p>
+      </div>
+    </section>
+
+    <footer class="text-center text-gray-500 text-sm py-6">
+      © 2025 AI Predictor. Not affiliated with 1xBet. Use responsibly.
+    </footer>
   </div>
 
   <script>
@@ -104,7 +144,7 @@
 
     document.getElementById("connectButton").addEventListener("click", () => {
       const userId = document.getElementById("userId").value;
-      if (userId) {
+      if (userId && userId.length === 10) {
         document.getElementById("accountIdDisplay").innerText = userId;
         document.getElementById("connectionSuccess").classList.remove("hidden");
         document.getElementById("errorBox").classList.add("hidden");
